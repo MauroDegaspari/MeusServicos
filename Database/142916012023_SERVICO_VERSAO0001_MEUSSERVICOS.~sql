@@ -1,0 +1,17 @@
+  --<Ds_script>
+-- DESCRI??O ...: 'Servico' - Criação da tabela de cadastro de serviços para clientes - "Nome da Tela"
+-- RESPONSAVEL..: Mauro Degaspari
+-- DATA.........: 01/15/2023
+-- APLICA??O....:  MeusServiços
+-- </ds_script>
+
+-- <USUARIO = DBAMS>
+-- DROP TABLE dbams.cliente
+
+
+CREATE TABLE dbams.servico(
+
+ cd_servico   NUMBER        NOT NULL,
+ ds_descicao  VARCHAR(150)      NULL,
+
+)

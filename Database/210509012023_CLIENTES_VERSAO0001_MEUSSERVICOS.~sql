@@ -9,10 +9,10 @@
 
 CREATE TABLE dbams.clientes(
 
-   cd_cliente   NUMBER    NOT NULL,
-   nm_cliente   VARCHAR2  NOT NULL,
-   cpf          NUMBER    NOT NULL,
-   dt_cadastro  DATE          NULL
+   cd_cliente   NUMBER         NOT NULL,
+   nm_cliente   VARCHAR2(123)  NOT NULL,
+   cpf          NUMBER         NOT NULL,
+   dt_cadastro  DATE           NULL
  )
 
 
