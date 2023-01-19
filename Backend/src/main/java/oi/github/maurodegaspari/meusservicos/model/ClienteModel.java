@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="cliente")
@@ -24,9 +27,10 @@ public class ClienteModel {
 	private String nome_cliente;
 	
 	@Column(name="cpf", nullable = false)
-	private String cpf;
+	private int cpf;
 	
 	@Column(name="dt_cadastro")
+	@JsonFormat(pattern = "dd/mm/yyyy")
 	private LocalDate data;
 
 		
@@ -34,6 +38,11 @@ public class ClienteModel {
 		
 	}
 
+	@PrePersist
+	public void prePersist() {
+		setData(LocalDate.now());
+	}
+	
 	public int getCodigo_cliente() {
 		return codigo_cliente;
 	}
@@ -50,11 +59,11 @@ public class ClienteModel {
 		this.nome_cliente = nome_cliente;
 	}
 
-	public String getCpf() {
+	public int getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(String cpf) {
+	public void setCpf(int cpf) {
 		this.cpf = cpf;
 	}
 
