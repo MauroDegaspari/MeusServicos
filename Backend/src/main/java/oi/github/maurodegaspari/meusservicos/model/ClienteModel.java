@@ -21,7 +21,7 @@ public class ClienteModel {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_cliente")
 	@SequenceGenerator(name="seq_cliente", allocationSize = 1)
 	@Column(name = "cd_cliente", nullable = false)
-	private int codigo_cliente;
+	private Long codigo_cliente;
 
 	@Column(name="nm_cliente", nullable = false)
 	private String nome_cliente;
@@ -30,7 +30,7 @@ public class ClienteModel {
 	private int cpf;
 	
 	@Column(name="dt_cadastro")
-	@JsonFormat(pattern = "dd/mm/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate data;
 
 		
@@ -43,11 +43,11 @@ public class ClienteModel {
 		setData(LocalDate.now());
 	}
 	
-	public int getCodigo_cliente() {
+	public Long getCodigo_cliente() {
 		return codigo_cliente;
 	}
 
-	public void setCodigo_cliente(int codigo_cliente) {
+	public void setCodigo_cliente(Long codigo_cliente) {
 		this.codigo_cliente = codigo_cliente;
 	}
 
