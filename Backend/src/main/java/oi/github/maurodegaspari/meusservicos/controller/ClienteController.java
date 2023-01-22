@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -24,7 +25,7 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-								//RequestBody para incidar que virar um objeto Json da requisição 
+								//RequestBody para indicar que virar um objeto Json da requisição 
 	public ClienteModel salvar(@RequestBody ClienteModel cliente) {
 		return clienteRepo.save(cliente);
 	}
@@ -43,9 +44,21 @@ public class ClienteController {
 		.findById(id)
 		.map( cliente ->{
 			clienteRepo.delete(cliente);
-			System.out.println("Cliente deletado com sussa");
 			return Void.TYPE;
 		})
-		.orElseThrow( ()-> new ResponseStatusException(HttpStatus.NOT_FOUND));;
+		.orElseThrow( ()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+	}
+	
+	@PutMapping("{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void atualizarCliente(@PathVariable Long id, @RequestBody ClienteModel clienteAtualizado) {
+		clienteRepo
+		    .findById(id)
+		    .map( cliente ->{
+		    	cliente.setNome_cliente(clienteAtualizado.getNome_cliente());
+		    	cliente.setCpf(clienteAtualizado.getCpf());
+		    	return clienteRepo.save(cliente);
+		    })
+		    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
 	}
 }

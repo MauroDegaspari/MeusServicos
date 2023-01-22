@@ -28,8 +28,8 @@ public class ClienteModel {
 	
 	@Column(name="cpf", nullable = false)
 	private int cpf;
-	
-	@Column(name="dt_cadastro")
+								//nunca atualiza essa coluna	
+	@Column(name="dt_cadastro", updatable = false)
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate data;
 
