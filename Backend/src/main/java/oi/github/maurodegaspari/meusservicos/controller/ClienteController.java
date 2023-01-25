@@ -1,5 +1,8 @@
 package oi.github.maurodegaspari.meusservicos.controller;
 
+import org.springframework.data.domain.Pageable;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,6 +40,11 @@ public class ClienteController {
 				.orElseThrow( ()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
 	
+	@GetMapping("/todos")
+	public List<ClienteModel> todosClientesFind(Pageable pageable){
+		return clienteRepo.findAll();
+	}
+	
 	@DeleteMapping("{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void excluirCLiente(@PathVariable Long id) {
@@ -61,4 +69,6 @@ public class ClienteController {
 		    })
 		    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
 	}
+	
+	
 }
