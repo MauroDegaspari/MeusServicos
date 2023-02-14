@@ -12,6 +12,9 @@ import { ClienteFormComponent } from './cliente-form/cliente-form.component';
   imports: [
     CommonModule,
     ClientesRoutingModule
+  ],
+  exports:[
+    ClienteFormComponent
   ]
 })
 export class ClientesModule { }
