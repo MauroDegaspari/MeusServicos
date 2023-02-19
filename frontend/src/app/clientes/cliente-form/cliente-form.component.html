@@ -3,7 +3,7 @@
     <li class="breadcrumb-item active">Formulario de cadastro</li>
 </ol>
   
-<form>
+<form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
       <div class="form-group col-md-1">
         <label >ID</label>
@@ -23,7 +23,7 @@
       <input type="text" class="form-control" [(ngModel)]="clientes.cpf" name="cpf">
     </div>
    
-    <button type="submit" class="btn btn-success" (click)="salvar()">
+    <button type="submit" class="btn btn-success">
       <i class="fa fa-save"></i> Salvar
 
     </button>

@@ -19,7 +19,7 @@ export class ClienteFormComponent implements OnInit{
     
   }
 
-  salvar(){
+  onSubmit(){
      console.log(this.clientes);
   }
 }
