@@ -7,20 +7,25 @@
     <div class="form-row">
       <div class="form-group col-md-1">
         <label >ID</label>
-        <input type="txt" class="form-control" [ngModel]="clientes.id" name="cliente.id" disabled="true">
+        <input type="txt" class="form-control"
+               [ngModel]="clientes.id" name="cliente.id" disabled="true"/>
       </div>
       <div class="form-group col-md-10">
         <label >Data do Cadastro</label>
-        <input type="txt" class="form-control" [ngModel]="clientes.dataCadastro" name="dataCadastro" disabled="true">
+        <input type="txt" class="form-control" 
+               [ngModel]="clientes.dataCadastro" name="dataCadastro" 
+                          disabled="true"/>
       </div>
     </div>
     <div class="form-group">
       <label for="inputAddress">Nome</label>
-      <input type="text" class="form-control" [(ngModel)]="clientes.nome" name="nome">
+      <input type="text" class="form-control" 
+            [(ngModel)]="clientes.nome_cliente" name="nome"/>
     </div>
     <div class="form-group">
       <label for="inputAddress2">CPF</label>
-      <input type="text" class="form-control" [(ngModel)]="clientes.cpf" name="cpf">
+      <input type="text" class="form-control" 
+      [(ngModel)]="clientes.cpf" name="cpf"/>
     </div>
    
     <button type="submit" class="btn btn-success">
