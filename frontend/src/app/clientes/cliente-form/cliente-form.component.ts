@@ -11,7 +11,7 @@ export class ClienteFormComponent implements OnInit{
   clientes: ClienteModel = new ClienteModel;
   
   constructor( private clienteService: ClientesService){
-    this.clientes = clienteService.getCliente();
+    this.clientes = new ClienteModel();
   
   }
 
@@ -20,6 +20,10 @@ export class ClienteFormComponent implements OnInit{
   }
 
   onSubmit(){
-     console.log(this.clientes);
+     this.clienteService
+         .salvar(this.clientes)
+         .subscribe( response =>{
+          console.log(response);
+         })
   }
 }
