@@ -22,6 +22,7 @@ import oi.github.maurodegaspari.meusservicos.repository.ClienteRepository;
 
 @RestController
 @RequestMapping("/api/cliente")
+@CrossOrigin("http://localhost:4200")
 public class ClienteController {
 	
 	@Autowired
@@ -29,8 +30,7 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	@CrossOrigin("http://localhost:4200")
-								//RequestBody para indicar que virar um objeto Json da requisição 
+									//RequestBody para indicar que virar um objeto Json da requisição 
 	public ClienteModel salvar(@RequestBody ClienteModel cliente) {
 		return clienteRepo.save(cliente);
 	}
